@@ -13,7 +13,7 @@ const GIFTS: [&str; 12] = [
     "twelve drummers drumming",
 ];
 const ORDINAL_DAYS: [&str; 12] = [
-    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "nineth", "tenth",
+    "first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eighth", "ninth", "tenth",
     "eleventh", "twelfth",
 ];
 
@@ -45,17 +45,21 @@ fn compose_lyrics(gifts: [&str; 12], ordinal_days: [&str; 12]) -> Vec<String> {
     }
     split_into_syllables(lyrics)
 }
-fn split_into_syllables(lyrics: Vec<String>) -> Vec<String>{
-    let mut syllablized_lyrics: Vec<String> = Vec::new();
-    for (index, word) in lyrics.into_iter().enumerate(){
+fn split_into_syllables(lyrics: Vec<String>) -> Vec<String> {
+    let syllabized_lyrics: Vec<String> = Vec::new();
+    for (_index, word) in lyrics.into_iter().enumerate() {
         // split on hyphen
-        let hypenated_word: Vec<&str> = word.split("-").collect();
-        println!("{:?}", hypenated_word);
+        let hyphenated_word: Vec<&str> = word.split("-").collect();
+        println!("{:?}", hyphenated_word);
         // println!("{0}", word);
     }
-    syllablized_lyrics
+    syllabized_lyrics
 }
-fn sing_song(lyrics: Vec<String>) {}
+fn sing_song(lyrics: Vec<String>) {
+    for syllable in lyrics {
+        todo!("{}", syllable);
+    }
+}
 
 fn main() {
     sing_song(compose_lyrics(GIFTS, ORDINAL_DAYS));
